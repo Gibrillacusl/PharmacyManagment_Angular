@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+        	<div class="row">
+               <div class="col-xs-4 item-photo">
+                    <img style="max-width:50%;" src={{medicineImg}} />
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray margin 50px">
+
+                    <h2>{{medicineName}}</h2>
+
+                    <h6>Expiry Date- {{medicineExpDate}}</h6>
+                    <h6>Stock Available- {{medicineStock}}</h6>
+                    <h6>Price- {{medicinePrice}}</h6>
+
+
+                    <div class="section" style="padding-bottom:20px;">
+                        <h6 class="title-attr"><small>ADD QUANTITY</small></h6>
+                        <div>
+                            <div class="btn-minus"><span class="glyphicon glyphicon-minus">-</span></div>
+                            <input value="1" />
+                            <div class="btn-plus"><span class="glyphicon glyphicon-plus">+</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de compra -->
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+  $(document).ready(function(){
+            //-- Click on detail
+            $("ul.menu-items > li").on("click",function(){
+                $("ul.menu-items > li").removeClass("active");
+                $(this).addClass("active");
+            })
+
+            $(".attr,.attr2").on("click",function(){
+                var clase = $(this).attr("class");
+
+                $("." + clase).removeClass("active");
+                $(this).addClass("active");
+            })
+
+            //-- Click on QUANTITY
+            $(".btn-minus").on("click",function(){
+                var now = $(".section > div > input").val();
+                if ($.isNumeric(now)){
+                    if (parseInt(now) -1 > 0){ now--;}
+                    $(".section > div > input").val(now);
+                }else{
+                    $(".section > div > input").val("1");
+                }
+            })
+            $(".btn-plus").on("click",function(){
+                var now = $(".section > div > input").val();
+                if ($.isNumeric(now)){
+                    $(".section > div > input").val(parseInt(now)+1);
+                }else{
+                    $(".section > div > input").val("1");
+                }
+            })
+        })
+</script>
+
