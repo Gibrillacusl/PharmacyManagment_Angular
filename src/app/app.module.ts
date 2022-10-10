@@ -23,7 +23,9 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+
+
 
   ],
   providers: [SignupService],

@@ -1,8 +1,8 @@
 export class Medicine {
-   medicineId!:number
-   medName !:string ;
-   medPrice!:number;
-   medExpDate! :Date
-   medStock!:number
-   medImage!:string
+   medicineId:number=0;
+   medName:string='';
+   medPrice:string='';
+   medExpDate:string='';
+   medStock:string='';
+   medImage:string='';
 }

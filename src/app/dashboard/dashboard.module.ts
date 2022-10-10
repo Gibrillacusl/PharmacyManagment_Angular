@@ -7,6 +7,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin
 import { FormBuilder, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { FilterPipe } from '../shared/pipe/filter.pipe';
+import { MedicineDashboardComponent } from './medicine-dashboard/medicine-dashboard.component';
+import { SupplierDashboardComponent } from './supplier-dashboard/supplier-dashboard.component';
+import { MedicineFormComponent } from './medicine-dashboard/medicine-form/medicine-form.component';
 
 
 const routes: Routes =[
@@ -15,15 +18,23 @@ const routes: Routes =[
   },
   {
     path:'admin',component:AdminDashboardComponent
-  }
+  },
+  {
+    path:'medicine',component:MedicineDashboardComponent
+  },
+  {
+    path:'supplier',component:SupplierDashboardComponent
+  },
+
 ]
 
 @NgModule({
-  declarations: [DoctorDashboardComponent,AdminDashboardComponent],
+  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
+
 
     FormsModule
 

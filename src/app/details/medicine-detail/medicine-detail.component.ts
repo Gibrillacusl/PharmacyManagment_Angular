@@ -13,10 +13,7 @@ export class MedicineDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(data=>{
-    //  this.medicineDetail.medName=data.get['MedicineName'];
-    //  this.medicineDetail.medExpDate=data.MedicineExpDate'];
-    //  this.medicineDetail.medStock=data['stock'];
-    //  this.medicineDetail.medPrice=data['MedicinePrice'];
+
     this.medicineName=data['MedicineName'];
     this.medicineExpDate=data['MedicineExpDate'];
     this.medicinePrice=data['MedicinePrice'];

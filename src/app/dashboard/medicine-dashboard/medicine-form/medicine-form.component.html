@@ -1,0 +1,76 @@
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container">
+</div>
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" name="medicneid" [value]="medicineService.medicineData.medicineId">
+
+                    <label for="medname" class="float-left">Name</label>
+                    <div *ngIf="medname.invalid && (medname.touched || medname.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="medname" class="form-control" placeholder="Enter Name" #medname="ngModel" [(ngModel)]="medicineService.medicineData.medName" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="stock" class="float-left">Stock</label>
+                    <div *ngIf="medstock.invalid && (medstock.touched || medstock.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="medstock" class="form-control" placeholder="Enter Stock" #medstock="ngModel" [(ngModel)]="medicineService.medicineData.medStock" >
+                </div>
+
+                <div class="col-md-3">
+                    <label for="medprice" class="float-left">Price</label>
+                    <div *ngIf="medprice.invalid && (medprice.touched || medprice.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="medprice" class="form-control" placeholder="Enter Medicine Price" #medprice="ngModel" [(ngModel)]="medicineService.medicineData.medPrice" required>
+                </div>
+
+                <!-- <div class="col-md-3">
+                    <label for="name" class="float-left">Age</label>
+                    <div *ngIf="age.invalid && (age.touched || age.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="number" name="age" class="form-control" placeholder="Enter Age" #age="ngModel" [(ngModel)]="medicineService.medicineData.MedImage" required> -->
+                <!-- </div> -->
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="medexpdate" class="label float-left">Expiry Date</label>
+                    <div *ngIf="medexpdate.invalid && (medexpdate.touched || medexpdate.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" class="form-control" name="medexpdate" [(ngModel)]="medicineService.medicineData.medExpDate" #medexpdate="ngModel" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="medimage" class="float-left">Image</label>
+                  <div *ngIf="medimage.invalid && (medimage.touched || medimage.dirty)" class="float-right">
+                      <p class="text-danger">Required</p>
+                  </div>
+                  <input type="text" name="medimage" class="form-control" placeholder="Enter Image URL" #medimage="ngModel" [(ngModel)]="medicineService.medicineData.medImage" >
+              </div>
+
+
+            </div>
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-2">
+                  <button type="submit" class="btn btn-success btn-block">Save</button>
+              </div>
+              <div class="col-md-2">
+                  <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+              </div>
+          </div>
+
+
+
+        </div>
+    </form>
+ </div>

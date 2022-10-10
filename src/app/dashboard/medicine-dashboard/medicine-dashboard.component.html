@@ -1,0 +1,30 @@
+<div class="container">
+  <app-medicine-form></app-medicine-form>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Medicine Name</th>
+      <th>Price</th>
+      <th>Expiry Date</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let med of listMedicine">
+      <td>{{med.medicineId}}</td>
+      <td>{{med.medName}}</td>
+      <td>{{med.medPrice}}</td>
+      <td>{{med.medExpDate|date:'yyyy-MM-dd'}}</td>
+      <td>{{med.medStock}}</td>
+<td>
+  <div>
+    <button class="btn btn-success" (click)=" populateMedicine(med)" style="margin: 2px;">Edit</button>
+    <button  class="btn btn-success" (click)="delete(med.medicineId)"style="margin: 2px;">Delete</button>
+  </div>
+</td>
+    </tr>
+
+  </tbody>
+</table>
