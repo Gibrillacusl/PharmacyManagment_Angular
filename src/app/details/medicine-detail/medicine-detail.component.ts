@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Medicine } from 'src/app/models/medicine';
 
 @Component({
@@ -9,7 +10,7 @@ import { Medicine } from 'src/app/models/medicine';
 })
 export class MedicineDetailComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(data=>{
@@ -25,11 +26,24 @@ export class MedicineDetailComponent implements OnInit {
     })
   }
   medicineName!:string;
-  medicineExpDate!:Date
-  medicineStock!:number
-  medicinePrice!:number
-  medicineImg!:string
+  medicineExpDate!:Date;
+  medicineStock!:number;
+  medicinePrice!:number;
+  medicineImg!:string;
+  num:number=0;
+  add(){
+   if(this.num<this.medicineStock){
+   this.num += 1;
+   }
+   else{
+    this.toastr.error("Limit Exceeded");
+   }
 
-
+  }
+  remove(){
+   if(this.num!=0){
+    this.num -= 1;
+  }
+}
 
 }

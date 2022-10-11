@@ -1,7 +1,7 @@
 <div class="container">
   <app-medicine-form></app-medicine-form>
 </div>
-<table class="table table-hover">
+<table class="table table-hover" style="margin-left: 109px">
   <thead class="thead-dark">
     <tr>
       <th>Id</th>
@@ -20,8 +20,8 @@
       <td>{{med.medStock}}</td>
 <td>
   <div>
-    <button class="btn btn-success" (click)=" populateMedicine(med)" style="margin: 2px;">Edit</button>
-    <button  class="btn btn-success" (click)="delete(med.medicineId)"style="margin: 2px;">Delete</button>
+    <button class="btn btn-dark" (click)=" populateMedicine(med)" style="margin: 2px;width: 72px">Edit</button>
+    <button  class="btn" (click)="delete(med.medicineId)"style="margin: 2px; background-color: rgb(139, 2, 2);color: white;"><i class="fa fa-trash"></i> Delete</button>
   </div>
 </td>
     </tr>

@@ -1,6 +1,7 @@
-<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<input #checkbox1 type="checkbox" name="toggle" id="toggle" style="margin-left: 28px;">
 <label for="toggle"></label>
 <div class="container">
+
 </div>
 <div class="formAdd">
     <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
@@ -62,7 +63,8 @@
             <div class="row">
               <div class="col-md-8"></div>
               <div class="col-md-2">
-                  <button type="submit" class="btn btn-success btn-block">Save</button>
+                  <button type="submit" class="btn btn-success btn-block" style="margin-left: 95px;
+                  width: 79px;">Save</button>
               </div>
               <div class="col-md-2">
                   <button type="reset" class="btn btn-danger btn-block">Cancel</button>
@@ -73,4 +75,8 @@
 
         </div>
     </form>
+ </div>
+ <div>
+  <button type="button" class="btn btn-danger btn-rounded" style="margin-left: 48px;
+  width: 101px;" [routerLink]="['../admin']">&laquo; Back</button>
  </div>
