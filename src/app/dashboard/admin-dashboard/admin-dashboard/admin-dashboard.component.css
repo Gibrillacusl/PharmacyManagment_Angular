@@ -52,10 +52,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 80%;
+
   padding: 20px;
   text-align: center;
   margin: 250px;
-  margin-left: 376px;
+  width: 898px;
+  height: 423px;
+  margin-left: 587px
+
 }
 

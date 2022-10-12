@@ -16,5 +16,6 @@ export class AuthService {
       let url= "https://localhost:7174/api/AdminLogin"
       return this.httpClient.post(url,loginModel)
     }
-  
+
+
 }

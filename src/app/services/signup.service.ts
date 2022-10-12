@@ -14,4 +14,8 @@ fromData:Doctor=new Doctor();
 registerdoctor(){
   return this.http.post(this.rootUrl + '/api/Doctors', this.fromData);
 }
+getDoctorByName(){
+  let url="https://localhost:7174/api/Doctors"
+  return this.http.get(url)
+}
 }

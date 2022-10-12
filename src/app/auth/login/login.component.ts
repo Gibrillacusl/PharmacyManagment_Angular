@@ -20,13 +20,16 @@ export class LoginComponent implements OnInit {
 
 
   doctorLogin() {
+    if(this.loginModel.emailId==undefined||this.loginModel.password==undefined||this.role==undefined){
+      this.toastr.error("Please enter the required fields!");
+    }
     if (this.role == "Doctor") {
       this.auth.doctorLogin(this.loginModel).subscribe(
-        res => {
+        (res:any) => {
           console.log(res)
           this.route.navigate(['dashboard/doctor'])
           this.toastr.success("Login Successful As Doctor")
-
+          localStorage.setItem("token",res.token)
         },
         error=>{
           this.toastr.error("Invalid Credentials")
@@ -36,9 +39,10 @@ export class LoginComponent implements OnInit {
     }
     else if(this.role=="Admin"){
       this.auth.adminLogin(this.loginModel).subscribe(
-        res => {
+       (res:any) => {
           this.route.navigate(['dashboard/admin'])
           this.toastr.success("Login Successful As Admin")
+          localStorage.setItem("token",res.token)
         },
         error=>{
           this.toastr.error("Invalid Credentials")

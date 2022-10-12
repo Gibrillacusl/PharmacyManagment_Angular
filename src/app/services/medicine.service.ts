@@ -15,8 +15,17 @@ constructor(private http:HttpClient) { }
 medicineData:Medicine=new Medicine(); //for post data / Insert data
 listMedicine:Medicine[]=[];
 isUpdate:BehaviorSubject<boolean>=new BehaviorSubject<boolean>(false);
+// createAuthorizationHeader(headers: Headers) {
+//   let token=localStorage.getItem("token");
+//   headers.append('Authorization', 'Basic ' + token);
+
+// }
 getAllMedicines(): Observable<Medicine[]> {
-  return this.http.get<Medicine[]>(this.rootUrl + '/api/Medicines');
+  // let headers = new Headers();
+  // this.createAuthorizationHeader(headers);
+  // let token=localStorage.getItem("token") || "name";
+  // let headers=new HttpHeaders().set('Authorization', 'bearer '+ token);
+  return this.http.get<Medicine[]>(this.rootUrl +'/api/Medicines/');
 }
 
 getMedicineByName(MedicineName: string): Observable<Medicine> {

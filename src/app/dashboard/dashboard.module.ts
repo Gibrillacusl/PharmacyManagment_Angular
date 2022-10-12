@@ -10,6 +10,9 @@ import { FilterPipe } from '../shared/pipe/filter.pipe';
 import { MedicineDashboardComponent } from './medicine-dashboard/medicine-dashboard.component';
 import { SupplierDashboardComponent } from './supplier-dashboard/supplier-dashboard.component';
 import { MedicineFormComponent } from './medicine-dashboard/medicine-form/medicine-form.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from '../services/http-inteceptor.service';
+import { SupplierFormComponent } from './supplier-dashboard/supplier-form/supplier-form.component';
 
 
 const routes: Routes =[
@@ -29,7 +32,7 @@ const routes: Routes =[
 ]
 
 @NgModule({
-  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent],
+  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -40,6 +43,6 @@ const routes: Routes =[
 
 
   ],
-  //providers:[FormBuilder]
+  providers:[]
 })
 export class DashboardModule { }

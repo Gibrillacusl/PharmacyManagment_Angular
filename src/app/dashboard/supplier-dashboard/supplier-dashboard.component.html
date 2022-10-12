@@ -1,1 +1,32 @@
-<p>supplier-dashboard works!</p>
+<!-- {{supplierList | json}} -->
+<app-supplier-form [supplier]="supplierData" ></app-supplier-form>
+<table class="table table-hover" style="margin-left: 50px">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Supplier Name</th>
+        <th>Supplier Email</th>
+        <th>Phone Number</th>
+        <th>Medicine Name</th>
+        <th>Price</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let supplier of supplierList">
+        <td>{{supplier.supplierId}}</td>
+        <td>{{supplier.supplierName}}</td>
+        <td>{{supplier.supplierEmail}}</td>
+        <td>{{supplier.supplierPhnNum}}</td>
+        <td>{{supplier.medicine.medName}}</td>
+        <td>{{supplier.medicine.medPrice}}</td>
+  <td>
+    <div>
+      <button class="btn btn-dark"  style="margin: 2px;width: 72px" (click)="edit(supplier)">Edit</button>
+      <button  class="btn" style="margin: 2px; background-color: rgb(139, 2, 2);color: white;"(click)="delete(supplier.supplierId)"><i class="fa fa-trash"></i> Delete</button>
+    </div>
+  </td>
+      </tr>
+
+    </tbody>
+  </table>

@@ -9,11 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { HttpInterceptorService } from '../services/http-inteceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
     path:"",component:HomeComponent,
-    
+
   },
 {
   path:"Login",component:LoginComponent,
@@ -23,6 +26,9 @@ const routes: Routes = [
 },
 {
   path:"Sign-Up",component:SignupComponent
+},
+{
+  path:"Contact",component:ContactComponent
 }
 ];
 
@@ -31,7 +37,8 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     AboutComponent,
-    SignupComponent
+    SignupComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
@@ -39,12 +46,12 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     // ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
-    
+
     ToastrModule.forRoot({
       timeOut: 3500,
       positionClass: 'toast-bottom-center',
       preventDuplicates: true,})
-    
+
   ],
   providers:[ToastrService]
 })
