@@ -13,6 +13,8 @@ import { MedicineFormComponent } from './medicine-dashboard/medicine-form/medici
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from '../services/http-inteceptor.service';
 import { SupplierFormComponent } from './supplier-dashboard/supplier-form/supplier-form.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes =[
@@ -28,21 +30,24 @@ const routes: Routes =[
   {
     path:'supplier',component:SupplierDashboardComponent
   },
+  {
+    path:'cart',component:CartComponent
+  }
 
 ]
 
 @NgModule({
-  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent],
+  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent, CartComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
-
+    ToastrModule.forRoot(),
 
     FormsModule
 
 
   ],
-  providers:[]
+  providers:[ToastrService]
 })
 export class DashboardModule { }

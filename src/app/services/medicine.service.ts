@@ -14,7 +14,9 @@ constructor(private http:HttpClient) { }
  //For Getting Data EmployeeList
 medicineData:Medicine=new Medicine(); //for post data / Insert data
 listMedicine:Medicine[]=[];
+medicineList:Medicine[]=[];
 isUpdate:BehaviorSubject<boolean>=new BehaviorSubject<boolean>(false);
+public selectedMedicine:BehaviorSubject<Medicine[]>=new BehaviorSubject<Medicine[]>(this.medicineList)
 // createAuthorizationHeader(headers: Headers) {
 //   let token=localStorage.getItem("token");
 //   headers.append('Authorization', 'Basic ' + token);

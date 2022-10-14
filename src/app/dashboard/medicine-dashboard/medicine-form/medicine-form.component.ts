@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Medicine } from 'src/app/models/medicine';
 import { MedicineService } from 'src/app/services/medicine.service';
 
@@ -10,7 +11,7 @@ import { MedicineService } from 'src/app/services/medicine.service';
 })
 export class MedicineFormComponent implements OnInit {
 
-  constructor(public medicineService:MedicineService) { }
+  constructor(public medicineService:MedicineService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +29,9 @@ export class MedicineFormComponent implements OnInit {
   this.refresh();
   console.log('saved');
   this.medicineService.isUpdate.next(true);
- });
+ },err=>{
+  this.toastr.error("Please enter a valid input")
+});
 }
  updateMed(myform:NgForm){
     this.medicineService.updateMedicine().subscribe(data=>{
@@ -37,7 +40,9 @@ export class MedicineFormComponent implements OnInit {
     console.log('saved');
     this.medicineService.isUpdate.next(true);
 
-   });
+   },err=>{
+    this.toastr.error("Please enter a valid input")
+  });
  }
  resetForm(myform:NgForm){
  myform.form.reset();
@@ -47,5 +52,8 @@ export class MedicineFormComponent implements OnInit {
   this.medicineService.getAllMedicines().subscribe(res=>{
     this.medicineService.listMedicine=res;
   });
+ }
+ cancel(){
+  this.medicineService.isUpdate.next(true);
  }
 }

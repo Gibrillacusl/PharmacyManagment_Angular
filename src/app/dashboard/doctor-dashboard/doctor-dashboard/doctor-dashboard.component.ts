@@ -18,6 +18,7 @@ export class DoctorDashboardComponent implements OnInit {
   massage = null;
   medicineList:Medicine[]=[];
   search!:string;
+  selectedMedForOrder:Medicine[]=[];
 //medicine: any;
 
   constructor(private medicineService:MedicineService,private route:Router) { }
@@ -45,6 +46,25 @@ export class DoctorDashboardComponent implements OnInit {
   }
   )
 
+  }
+  addToCart(medicine:Medicine){
+   this.selectedMedForOrder.push(medicine);
+   medicine['isSelected']=true;
+  }
+  remove(medicine:Medicine,i:number){
+    medicine['isSelected']=false;
+    this.selectedMedForOrder.forEach(data=>{
+      if(data.medicineId == medicine.medicineId){
+        this.selectedMedForOrder.splice(this.selectedMedForOrder.indexOf(data),1);
+      }
+
+    })
+
+  }
+  showCart(){
+    this.medicineService.isUpdate.next(true);
+    this.medicineService.selectedMedicine.next(this.selectedMedForOrder)
+    this.route.navigate(['dashboard/cart']);
   }
 
 }

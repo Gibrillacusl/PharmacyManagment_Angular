@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Medicine } from 'src/app/models/medicine';
@@ -26,5 +27,9 @@ export class AdminDashboardComponent implements OnInit {
   // addMedicine(){
 
   // }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
 
 }

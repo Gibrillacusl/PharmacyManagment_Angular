@@ -12,7 +12,7 @@
 
                     <label for="SupplierName" class="float-left">Name</label>
                     <div *ngIf="supplierName.invalid && (supplierName.touched || supplierName.dirty)" class="float-right">
-                        <p class="text-danger">Required</p>
+                        <p class="text-danger">This field is Required</p>
                     </div>
                     <input type="text" name="supplierName" class="form-control" placeholder="Enter Name" #supplierName="ngModel"
                         [(ngModel)]="supplier.supplierName" required>
@@ -21,7 +21,7 @@
                 <div class="col-md-3">
                     <label for="Email" class="float-left">Email</label>
                     <div *ngIf="supplierEmail.invalid && (supplierEmail.touched || supplierEmail.dirty)" class="float-right">
-                        <p class="text-danger">Required</p>
+                        <p class="text-danger">This field is Required/p>
                     </div>
                     <input type="text" name="supplierEmail" class="form-control" placeholder="Enter Email"
                         #supplierEmail="ngModel" [(ngModel)]="supplier.supplierEmail">
@@ -30,7 +30,7 @@
                 <div class="col-md-3">
                     <label for="PhoneNumber" class="float-left">PhoneNumber</label>
                     <div *ngIf="supplierPhnNum.invalid && (supplierPhnNum.touched || supplierPhnNum.dirty)" class="float-right">
-                        <p class="text-danger">Required</p>
+                        <p class="text-danger">This field is Required</p>
                     </div>
                     <input type="text" name="supplierPhnNum" class="form-control" placeholder="Enter PhoneNumber"
                         #supplierPhnNum="ngModel" [(ngModel)]="supplier.supplierPhnNum" required>
@@ -43,7 +43,7 @@
                 <div class="col-md-3">
                     <label for="MedicineId" class="label float-left">Medicine Id</label>
                     <div *ngIf="medicineId.invalid && (medicineId.touched || medicineId.dirty)" class="float-right">
-                        <p class="text-danger">Required</p>
+                        <p class="text-danger">This field is Required</p>
                     </div>
                     <input type="text" class="form-control" placeholder="Enter MedicineId" name="medicineId"
                         [(ngModel)]="supplier.medicineId" #medicineId="ngModel" required>
