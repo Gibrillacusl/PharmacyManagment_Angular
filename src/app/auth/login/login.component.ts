@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
           this.route.navigate(['dashboard/doctor'])
           this.toastr.success("Login Successful As Doctor")
           localStorage.setItem("token",res.token)
+          localStorage.setItem("emailId",this.loginModel.emailId)
         },
         error=>{
           this.toastr.error("Invalid Credentials")
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
           this.route.navigate(['dashboard/admin'])
           this.toastr.success("Login Successful As Admin")
           localStorage.setItem("token",res.token)
+          localStorage.setItem("emailId",this.loginModel.emailId)
         },
         error=>{
           this.toastr.error("Invalid Credentials")

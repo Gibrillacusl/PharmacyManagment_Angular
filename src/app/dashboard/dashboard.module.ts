@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard/doctor-dashboard.component';
@@ -15,6 +15,7 @@ import { HttpInterceptorService } from '../services/http-inteceptor.service';
 import { SupplierFormComponent } from './supplier-dashboard/supplier-form/supplier-form.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CartComponent } from './cart/cart.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
 
 
 const routes: Routes =[
@@ -32,12 +33,15 @@ const routes: Routes =[
   },
   {
     path:'cart',component:CartComponent
+  },
+  {
+    path:'sales',component:SalesReportComponent
   }
 
 ]
 
 @NgModule({
-  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent, CartComponent],
+  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent, CartComponent, SalesReportComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -48,6 +52,6 @@ const routes: Routes =[
 
 
   ],
-  providers:[ToastrService]
+  providers:[ToastrService,DatePipe]
 })
 export class DashboardModule { }

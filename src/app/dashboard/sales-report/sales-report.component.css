@@ -1,0 +1,8 @@
+div#addEstDetails {
+	padding: 0 30px;
+}
+table {
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ddd;
+}

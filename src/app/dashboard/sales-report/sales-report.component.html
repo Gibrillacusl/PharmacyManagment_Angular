@@ -1,0 +1,63 @@
+
+<div class="row m-auto w-100">
+	<div class="col-3">
+		<h1>Sales Report</h1>
+	</div>
+	<div class="col-9 mt-4">
+		<div class="form-inline">
+
+
+
+			<label for="date" class="mr-2">From</label>
+			<input class="mr-2" class="form-control" id="start_request" type="date" name="date" placeholder="YYYY-MM-DD" [(ngModel)]="fromDate">
+
+			<label for="date" class="mr-2">To</label>
+			<input class="form-control mr-2" id="end_request" type="date" name="date" placeholder="YYYY-MM-DD" [(ngModel)]="toDate">
+
+			<button (click)="getSales()" class="btn-primary btn">Submit</button>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="modal-xl modal hide" id="addEstDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLabel">Estimate #<span id="estId"></span></h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true"></span>
+		</button>
+	</div>
+	<div class="modal-body">
+
+		<div id="material" class="row">
+		</div>
+	</div>
+
+</div>
+
+
+<table class="table table-hover table-responsive-lg m-auto w-100 table sortable  dataTable dataTable_length sorting" id="est_table">
+	<thead class="thead-dark">
+		<tr>
+
+      <th>order Id</th>
+      <th>order Date</th>
+      <th>Medicine Id</th>
+      <th>Items</th>
+      <th>Total amount</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="table-active" *ngFor="let list of orderList">
+      <td>{{list.orderId}}</td>
+      <td>{{list.orderDate|date:'yyyy-MM-dd'}}</td>
+      <td>{{list.medicineId}}</td>
+      <td>{{list.count}}</td>
+      <td>{{list.amount}}</td>
+
+
+		</tr>
+	</tbody>
+</table>
