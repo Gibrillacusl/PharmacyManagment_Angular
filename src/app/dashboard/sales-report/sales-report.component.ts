@@ -24,7 +24,7 @@ export class SalesReportComponent implements OnInit {
   }
 
   getOrders(){
-    this.orderService.getAllOrders().subscribe(data=>{
+      this.orderService.getAllOrders().subscribe(data=>{
       this.orderList=data;
     })
   }

@@ -1,22 +1,18 @@
 
 <div class="row m-auto w-100">
 
-	<div class="col-3">
+	<div class="col-12" style="display:flex;border-right:1px solid black !important">
     <button class="btn btn-dark" [routerLink]="['../admin']">Back</button>
-		<h1>Sales Report</h1>
+    <div *ngFor="let tab of tabs;let i=index" (click)="onSelectTab(i)" >
+      <h1 >{{tab.name}}</h1>
+    </div>
+
 	</div>
 	<div class="col-9 mt-4" style="margin-left: 524px;">
 		<div class="form-inline">
 
 
 
-			<label for="date" class="mr-2">From</label>
-			<input class="mr-2" class="form-control" id="start_request" type="date" name="date" placeholder="YYYY-MM-DD" [(ngModel)]="fromDate" style="width: 180px;">
-
-			<label for="date" class="mr-2">To</label>
-			<input class="form-control mr-2" id="end_request" type="date" name="date" placeholder="YYYY-MM-DD" [(ngModel)]="toDate" style="width: 180px;">
-
-			<button (click)="getSales()" class="btn-primary btn" style="margin: 10px;margin-left: -1px">Submit</button>
 
 		</div>
 	</div>
@@ -39,7 +35,7 @@
 </div>
 
 
-<table class="table table-hover table-responsive-lg m-auto w-100 table sortable  dataTable dataTable_length sorting" id="est_table">
+<table *ngIf="selectedTabIndex==0" class="table table-hover table-responsive-lg m-auto w-100 table sortable  dataTable dataTable_length sorting" id="est_table">
 	<thead class="thead-dark">
 		<tr>
 
@@ -48,6 +44,8 @@
       <th>Medicine Id</th>
       <th>Items</th>
       <th>Total amount</th>
+      <th>Confirm Order</th>
+
 
 		</tr>
 	</thead>
@@ -58,8 +56,41 @@
       <td>{{list.medicineId}}</td>
       <td>{{list.count}}</td>
       <td>{{list.amount}}</td>
+      <td *ngIf="!list.isConfirmed&&!list.isPickedUp"><button class="btn btn-primary" (click)="confirmPickedUp(list.orderId,list)">Confirm</button></td>
+      <td *ngIf="list.isConfirmed||list.isPickedUp" style="color: green;">Confirmed!</td>
 
 
 		</tr>
 	</tbody>
 </table>
+<div *ngIf="selectedTabIndex==1">
+  <table>
+  <thead class="thead-dark">
+		<tr>
+
+      <th>order Id</th>
+      <th>order Date</th>
+      <th>Medicine Id</th>
+      <th>Items</th>
+      <th>Total amount</th>
+
+
+		</tr>
+	</thead>
+  <tbody>
+		<tr class="table-active" *ngFor="let list of confirmedList">
+      <td>{{list.orderId}}</td>
+      <td>{{list.orderDate|date:'yyyy-MM-dd'}}</td>
+      <td>{{list.medicineId}}</td>
+      <td>{{list.count}}</td>
+      <td>{{list.amount}}</td>
+
+
+
+		</tr>
+	</tbody>
+  </table>
+
+
+</div>
+

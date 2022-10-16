@@ -16,6 +16,7 @@ import { SupplierFormComponent } from './supplier-dashboard/supplier-form/suppli
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CartComponent } from './cart/cart.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
+import { OrderDashboardComponent } from './order-dashboard/order-dashboard.component';
 
 
 const routes: Routes =[
@@ -36,12 +37,15 @@ const routes: Routes =[
   },
   {
     path:'sales',component:SalesReportComponent
+  },
+  {
+    path:'order',component:OrderDashboardComponent
   }
 
 ]
 
 @NgModule({
-  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent, CartComponent, SalesReportComponent],
+  declarations: [DoctorDashboardComponent,AdminDashboardComponent, MedicineDashboardComponent, SupplierDashboardComponent, MedicineFormComponent, SupplierFormComponent, CartComponent, SalesReportComponent, OrderDashboardComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

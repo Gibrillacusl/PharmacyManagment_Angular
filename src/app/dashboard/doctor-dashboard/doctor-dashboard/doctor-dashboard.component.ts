@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Medicine } from 'src/app/models/medicine';
 import { MedicineService } from 'src/app/services/medicine.service';
@@ -21,7 +22,7 @@ export class DoctorDashboardComponent implements OnInit {
   selectedMedForOrder:Medicine[]=[];
 //medicine: any;
 
-  constructor(private medicineService:MedicineService,private route:Router) { }
+  constructor(private medicineService:MedicineService,private route:Router,private tostr:ToastrService) { }
 
   ngOnInit() {
     this.getAllMedicine();
@@ -65,6 +66,11 @@ export class DoctorDashboardComponent implements OnInit {
     this.medicineService.isUpdate.next(true);
     this.medicineService.selectedMedicine.next(this.selectedMedForOrder)
     this.route.navigate(['dashboard/cart']);
+  }
+  logout(){
+    localStorage.clear();
+    this.tostr.error('User Logged Out');
+    this.route.navigate(['']);
   }
 
 }

@@ -82,7 +82,9 @@ export class CartComponent implements OnInit {
 
  placeOrder(){
   let obj:Order={} as Order;
+  //let ord:Array<Order>;
   this.selectedMed.map(data=>{
+
     // this.orderModel.medicineId=data.medicineId;
     // this.orderModel.amount=data.medPrice;
     // this.orderModel.count=data.medCount;
@@ -101,6 +103,8 @@ export class CartComponent implements OnInit {
     // medicine: new MedicineForOrder(),
   }
   return obj;
+  //ord.push(JSON.parse(JSON.stringify(obj)));
+
 
 
 

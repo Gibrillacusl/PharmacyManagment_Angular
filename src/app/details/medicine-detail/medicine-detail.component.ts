@@ -11,7 +11,7 @@ import { Medicine } from 'src/app/models/medicine';
 export class MedicineDetailComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
-
+  selectedMedForOrder:Medicine=new Medicine;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(data=>{
 
@@ -45,5 +45,10 @@ export class MedicineDetailComponent implements OnInit {
     this.num -= 1;
   }
 }
+addToCart(medicine:Medicine){
+  this.selectedMedForOrder=medicine;
+  medicine['isSelected']=true;
+
+ }
 
 }
