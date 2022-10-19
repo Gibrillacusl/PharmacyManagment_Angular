@@ -5,4 +5,23 @@ table {
 	border-spacing: 0;
 	width: 100%;
 	border: 1px solid #ddd;
+  margin-left: 40px;
+}
+/* .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+} */
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+tr {
+  border-bottom: 1px solid #ddd;
+  margin: 10px;
+  background-color:#D6EEEE;
 }

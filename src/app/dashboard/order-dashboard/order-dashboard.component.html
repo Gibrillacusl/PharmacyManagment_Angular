@@ -1,96 +1,105 @@
-
 <div class="row m-auto w-100">
-
-	<div class="col-12" style="display:flex;border-right:1px solid black !important">
-    <button class="btn btn-dark" [routerLink]="['../admin']">Back</button>
-    <div *ngFor="let tab of tabs;let i=index" (click)="onSelectTab(i)" >
-      <h1 >{{tab.name}}</h1>
+  <div
+    class="col-12"
+    style="display: flex; border-right: 1px solid black !important"
+  >
+    <button
+      class="btn btn-dark"
+      [routerLink]="['../admin']"
+      style="height: 40px; margin: 10px"
+    >
+      Back
+    </button>
+    <div *ngFor="let tab of tabs; let i = index" (click)="onSelectTab(i)">
+      <h2>{{ tab.name }}</h2>
     </div>
-
-	</div>
-	<div class="col-9 mt-4" style="margin-left: 524px;">
-		<div class="form-inline">
-
-
-
-
-		</div>
-	</div>
+  </div>
+  <div class="col-9 mt-4" style="margin-left: 524px">
+    <div class="form-inline"></div>
+  </div>
 </div>
 
-
-<div class="modal-xl modal hide" id="addEstDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<h5 class="modal-title" id="exampleModalLabel">Estimate #<span id="estId"></span></h5>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true"></span>
-		</button>
-	</div>
-	<div class="modal-body">
-
-		<div id="material" class="row">
-		</div>
-	</div>
-
+<div
+  class="modal-xl modal hide"
+  id="addEstDetails"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+      Estimate #<span id="estId"></span>
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div id="material" class="row"></div>
+  </div>
 </div>
 
-
-<table *ngIf="selectedTabIndex==0" class="table table-hover table-responsive-lg m-auto w-100 table sortable  dataTable dataTable_length sorting" id="est_table">
-	<thead class="thead-dark">
-		<tr>
-
+<table
+  *ngIf="selectedTabIndex == 0"
+  class="table table-hover table-responsive-lg m-auto w-100 table sortable dataTable dataTable_length sorting"
+  id="est_table"
+>
+  <thead class="thead-dark">
+    <tr>
       <th>order Id</th>
       <th>order Date</th>
       <th>Medicine Id</th>
       <th>Items</th>
       <th>Total amount</th>
       <th>Confirm Order</th>
-
-
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="table-active" *ngFor="let list of orderList">
-      <td>{{list.orderId}}</td>
-      <td>{{list.orderDate|date:'yyyy-MM-dd'}}</td>
-      <td>{{list.medicineId}}</td>
-      <td>{{list.count}}</td>
-      <td>{{list.amount}}</td>
-      <td *ngIf="!list.isConfirmed&&!list.isPickedUp"><button class="btn btn-primary" (click)="confirmPickedUp(list.orderId,list)">Confirm</button></td>
-      <td *ngIf="list.isConfirmed||list.isPickedUp" style="color: green;">Confirmed!</td>
-
-
-		</tr>
-	</tbody>
-</table>
-<div *ngIf="selectedTabIndex==1">
-  <table>
-  <thead class="thead-dark">
-		<tr>
-
-      <th>order Id</th>
-      <th>order Date</th>
-      <th>Medicine Id</th>
-      <th>Items</th>
-      <th>Total amount</th>
-
-
-		</tr>
-	</thead>
+    </tr>
+  </thead>
   <tbody>
-		<tr class="table-active" *ngFor="let list of confirmedList">
-      <td>{{list.orderId}}</td>
-      <td>{{list.orderDate|date:'yyyy-MM-dd'}}</td>
-      <td>{{list.medicineId}}</td>
-      <td>{{list.count}}</td>
-      <td>{{list.amount}}</td>
+    <tr class="table-active" *ngFor="let list of orderList">
+      <td>{{ list.orderId }}</td>
+      <td>{{ list.orderDate | date: "yyyy-MM-dd" }}</td>
+      <td>{{ list.medicineId }}</td>
+      <td>{{ list.count }}</td>
+      <td>{{ list.amount }}</td>
+      <td *ngIf="!list.isConfirmed && !list.isPickedUp">
+        <button
+          class="btn btn-primary"
+          style="width: 122px;"
+          (click)="confirmPickedUp(list.orderId, list)"
+        >
+          Confirm
+        </button>
+      </td>
 
-
-
-		</tr>
-	</tbody>
+      <td *ngIf="list.isConfirmed || list.isPickedUp" style="color: green">
+        <button class="btn btn-success"><span>&#10003;</span>
+        Confirmed!
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="selectedTabIndex == 1">
+  <table  class="table table-hover table-responsive-lg m-auto w-100 table sortable dataTable dataTable_length sorting"
+  id="est_table">
+    <thead class="thead-dark">
+      <tr>
+        <th>order Id</th>
+        <th>order Date</th>
+        <th>Medicine Id</th>
+        <th>Items</th>
+        <th>Total amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let list of confirmedList">
+        <td>{{ list.orderId }}</td>
+        <td>{{ list.orderDate | date: "yyyy-MM-dd" }}</td>
+        <td>{{ list.medicineId }}</td>
+        <td>{{ list.count }}</td>
+        <td>{{ list.amount }}</td>
+      </tr>
+    </tbody>
   </table>
-
-
 </div>
-

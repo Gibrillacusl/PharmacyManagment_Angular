@@ -1,0 +1,7 @@
+h2 {outline-style: solid;margin: 10px;}
+tr {
+  border-bottom: 1px solid #ddd;
+  margin: 10px;
+  background-color:#ffffff;
+}
+tr:nth-child(even){background-color: #f2f2f2;}

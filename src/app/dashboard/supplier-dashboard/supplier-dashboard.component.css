@@ -1,0 +1,14 @@
+.bg-img {
+  /* The image used */
+  background-image: url("https://as2.ftcdn.net/v2/jpg/03/08/48/01/1000_F_308480101_WGHkw4lhGEdYowqkCyCHJZcSBn4AvNMI.jpg");
+
+ height: 600px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}

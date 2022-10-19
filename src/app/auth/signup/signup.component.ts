@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Doctor } from 'src/app/models/doctor';
 import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDocterByName();
+    this.refresh();
   }
 
   //   signUp=new Signup();
@@ -27,6 +29,7 @@ export class SignupComponent implements OnInit {
   //   }
 
   phoneNumberRegex:any = /[0-9\+\-\ ]/;
+  passwordRegex:any=/(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}/;
   docList:any=[];
   onSubmit(from: NgForm) {
         let isDocExist=this.docList.filter((data:any)=>{
@@ -47,6 +50,9 @@ export class SignupComponent implements OnInit {
     else if(isDocExist.length>0){
       this.toastr.error('Docter alrerdy exist');
     }
+    else if(!this.passwordRegex.test(this.service.fromData.DocPassword)){
+      this.toastr.error('Strong Password required');
+    }
      else {
       this.service.registerdoctor().subscribe((res) => {
       console.log('Submit');
@@ -63,4 +69,8 @@ export class SignupComponent implements OnInit {
       this.docList=res;
     })
   }
+  refresh(){
+    this.service.fromData=new Doctor();
+  }
 }
+

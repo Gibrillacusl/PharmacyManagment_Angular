@@ -94,7 +94,7 @@ export class CartComponent implements OnInit {
     obj={
 
     medicineId:data.medicineId,
-    amount:data.medPrice,
+    amount:this.totalAmount+100,
     count:data.medCount,
     isPickedUp:true,
     orderDate:new Date(),

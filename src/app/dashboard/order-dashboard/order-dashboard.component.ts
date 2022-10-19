@@ -18,8 +18,8 @@ export class OrderDashboardComponent implements OnInit {
   }
   ord=new UpdateOrder();
   orderList:any[]=[];
-  tabs=[{name:'Sales Report',id:1},
-  {name:'Picked Up Section',id:2}];
+  tabs=[{name:'New Orders',id:1},
+  {name:'Confirmed Orders',id:2}];
   selectedTabIndex:number=0;
   confirmedList:Order[]=[];
 
