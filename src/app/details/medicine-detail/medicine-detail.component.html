@@ -18,18 +18,18 @@
                     <h6>Price- {{medicinePrice}}</h6>
 
 
-                    <div class="section" style="padding-bottom:20px;">
+                    <!-- <div class="section" style="padding-bottom:20px;">
                         <h6 class="title-attr"><small>ADD QUANTITY</small></h6>
                         <div>
                             <div class="btn-minus" (click)="remove()"><span class="glyphicon glyphicon-minus" >-</span></div>
                             <input [(ngModel)]="num" />
                             <div class="btn-plus" (click)="add()"><span class="glyphicon glyphicon-plus" >+</span></div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Botones de compra -->
                     <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span> Add to cart</button>
+                        <button (click)="addToCart()" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span> Add to cart</button>
 
                     </div>
                 </div>

@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
     if (this.role == "Doctor") {
       this.auth.doctorLogin(this.loginModel).subscribe(
         (res:any) => {
+          // this.auth.isLoggedIn.next(true);
+          this.auth.isLoggedIn=true;
           console.log(res)
           this.route.navigate(['dashboard/doctor'])
           this.toastr.success("Login Successful As Doctor")
@@ -41,6 +43,8 @@ export class LoginComponent implements OnInit {
     else if(this.role=="Admin"){
       this.auth.adminLogin(this.loginModel).subscribe(
        (res:any) => {
+          // this.auth.isLoggedIn.next(true);
+          this.auth.isLoggedIn=true;
           this.route.navigate(['dashboard/admin'])
           this.toastr.success("Login Successful As Admin")
           localStorage.setItem("token",res.token)

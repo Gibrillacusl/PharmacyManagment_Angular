@@ -11,7 +11,13 @@
             <div class="row g-0">
               <div class="col-lg-8">
                 <div class="p-5">
-                  <a  [routerLink]="['../doctor']" class="previous">&laquo; Back</a>
+                  <a  [routerLink]="['../doctor']" class="previous"
+                  style="
+                  color: #080707;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  font-size: 20px;
+                  font-weight: 500;">&laquo; Back</a>
                   <div
                     class="d-flex justify-content-between align-items-center mb-5"
                   >
@@ -46,6 +52,8 @@
                       <input
                         id="form1"
                         min="0"
+                        style="margin-left: -10px;
+                        font-weight: 700;"
 
                         type="text" [(ngModel)]="medicine.medCount"
                         class="form-control form-control-sm"

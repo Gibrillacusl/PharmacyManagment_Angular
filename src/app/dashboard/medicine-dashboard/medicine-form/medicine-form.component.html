@@ -48,7 +48,7 @@
                     <div *ngIf="medexpdate.invalid && (medexpdate.touched || medexpdate.dirty)" class="float-right">
                         <p class="text-danger">This field is Required</p>
                     </div>
-                    <input type="text" datetime="yyyy-MM-dd" class="form-control" name="medexpdate" [(ngModel)]="medicineService.medicineData.medExpDate" placeholder="Enter expiry date" #medexpdate="ngModel" required>
+                    <input type="date" datetime="yyyy-MM-dd" class="form-control" name="medexpdate" [(ngModel)]="medicineService.medicineData.medExpDate" placeholder="Enter expiry date" #medexpdate="ngModel" required>
                 </div>
                 <div class="col-md-3">
                   <label for="medimage" class="float-left">Image</label>

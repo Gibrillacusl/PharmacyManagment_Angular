@@ -25,8 +25,8 @@ export class CartComponent implements OnInit {
         this.medicine.selectedMedicine.subscribe((data) => {
           this.selectedMed = data;
           data.forEach(x=>{
-            this.medList.push(x.medPrice);
-            this.totalAmount += x.medPrice;
+            this.medList.push(Number(x.medPrice));
+            this.totalAmount += Number(x.medPrice);
           })
 
           this.selectedMed.forEach((data) => {
@@ -52,7 +52,7 @@ export class CartComponent implements OnInit {
     this.medicine.isUpdate.next(false);
       if (medCount < Number(medicineStock)) {
        medicine['medCount'] += 1;
-       medicine['medPrice'] += this.medList[i];
+       medicine['medPrice']=Number(medicine['medPrice']) + this.medList[i];
       this.totalAmount += this.medList[i];
       this.totalCount +=1;
       } else {
@@ -95,7 +95,7 @@ export class CartComponent implements OnInit {
 
     medicineId:data.medicineId,
     amount:this.totalAmount+100,
-    count:data.medCount,
+    count:this.totalCount,
     isPickedUp:true,
     orderDate:new Date(),
     docterId:this.docDetail.doctorId,

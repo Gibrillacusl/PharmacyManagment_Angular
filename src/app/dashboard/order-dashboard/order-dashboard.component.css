@@ -1,7 +1,23 @@
 h2 {outline-style: solid;margin: 10px;}
-tr {
+/* tr {
   border-bottom: 1px solid #ddd;
   margin: 10px;
   background-color:#ffffff;
 }
-tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(even){background-color: #f2f2f2;} */
+tbody tr:nth-child(odd) {
+  background: #202932;
+}
+
+tbody tr:nth-child(even) {
+  background: #2c3844;
+}
+
+.table-active {
+  color: #ffffff;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #777;
+  text-align: center;
+}

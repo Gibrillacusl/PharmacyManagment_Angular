@@ -65,14 +65,14 @@
 </div>
 
 <table
-  class="table table-hover table-responsive-lg m-auto w-100 table sortable dataTable dataTable_length sorting"
+  class="table table-responsive-lg m-auto w-100 table sortable dataTable dataTable_length sorting"
   id="est_table"
 >
   <thead class="thead-dark">
     <tr>
       <th>order Id</th>
       <th>order Date</th>
-      <th>Medicine Id</th>
+      <!-- <th>Medicine Id</th> -->
       <th>Items</th>
       <th>Total amount</th>
     </tr>
@@ -81,7 +81,7 @@
     <tr class="table-active" *ngFor="let list of orderList">
       <td>{{ list.orderId }}</td>
       <td>{{ list.orderDate | date: "yyyy-MM-dd" }}</td>
-      <td>{{ list.medicineId }}</td>
+      <!-- <td>{{ list.medicineId }}</td> -->
       <td>{{ list.count }}</td>
       <td>{{ list.amount }}</td>
     </tr>

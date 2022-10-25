@@ -43,6 +43,7 @@ export class DoctorDashboardComponent implements OnInit {
     MedicinePrice:medicine.medPrice,
     stock:medicine.medStock,
     img:medicine.medImage,
+    medId:medicine.medicineId,
   }
   }
   )

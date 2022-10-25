@@ -12,6 +12,7 @@ import { SignupService } from './services/signup.service';
 import { CommonModule } from '@angular/common';
 import { HttpInterceptorService } from './services/http-inteceptor.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { AuthGuard } from './shared/auth.guard';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     provide:HTTP_INTERCEPTORS,
     useClass:HttpInterceptorService,
     multi:true
-} , SignupService,ToastrService],
+} , SignupService,ToastrService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

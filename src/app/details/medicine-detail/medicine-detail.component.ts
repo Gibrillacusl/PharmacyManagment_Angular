@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Medicine } from 'src/app/models/medicine';
+import { MedicineService } from 'src/app/services/medicine.service';
 
 @Component({
   selector: 'app-medicine-detail',
@@ -10,11 +11,11 @@ import { Medicine } from 'src/app/models/medicine';
 })
 export class MedicineDetailComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
-  selectedMedForOrder:Medicine=new Medicine;
-  ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(data=>{
+  constructor(private activatedRoute:ActivatedRoute,private toastr: ToastrService,public route:Router,public medicineService:MedicineService) { }
 
+  ngOnInit(): void {
+   this.activatedRoute.queryParams.subscribe(data=>{
+    this.medicineId=data['medId'];
     this.medicineName=data['MedicineName'];
     this.medicineExpDate=data['MedicineExpDate'];
     this.medicinePrice=data['MedicinePrice'];
@@ -25,12 +26,13 @@ export class MedicineDetailComponent implements OnInit {
 
     })
   }
+  medicineId!:number;
   medicineName!:string;
-  medicineExpDate!:Date;
+  medicineExpDate!:string;
   medicineStock!:number;
   medicinePrice!:number;
   medicineImg!:string;
-  num:number=0;
+  num:number=1;
   add(){
    if(this.num<this.medicineStock){
    this.num += 1;
@@ -45,9 +47,23 @@ export class MedicineDetailComponent implements OnInit {
     this.num -= 1;
   }
 }
-addToCart(medicine:Medicine){
-  this.selectedMedForOrder=medicine;
-  medicine['isSelected']=true;
+addToCart(){
+
+  let selectedMedForOrder=[{
+    medicineId:this.medicineId,
+   medName:this.medicineName,
+   medPrice:this.medicinePrice,
+   medExpDate:this.medicineExpDate,
+   medStock:this.medicineStock,
+   medImage:this.medicineImg,
+
+   medCount:this.num,
+  }]
+  this.medicineService.isUpdate.next(true);
+  this.medicineService.selectedMedicine.next(selectedMedForOrder);
+
+  this.route.navigate(['dashboard/cart']);
+  console.log(selectedMedForOrder);
 
  }
 
